@@ -20,7 +20,18 @@ export default function Dashboard() {
     });
   };
 
-  const completed = days.filter((d) => d.completed).length;
+  useEffect(() => {
+    fetchDays()
+        .then((res) => {
+        console.log("API RESPONSE:", res.data); // 👈 ADD THIS
+        setDays(Array.isArray(res.data) ? res.data : []);
+        })
+        .catch(() => setDays([]));
+    }, []);
+
+  const completed = Array.isArray(days)
+  ? days.filter((d) => d.completed).length
+  : 0;
   const progress = days.length ? (completed / days.length) * 100 : 0;
 
   return (
