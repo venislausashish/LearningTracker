@@ -11,7 +11,7 @@ app.include_router(tracker.router)
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["https://learning-tracker-6dhpu0sss-venislausashishs-projects.vercel.app/"],
+    allow_origins=["*"],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
