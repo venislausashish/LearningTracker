@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const API = axios.create({
-  baseURL: import.meta.env.VITE_API_URL,
+  baseURL: "https://learningtracker-jtbr.onrender.com",
 });
 
 export const fetchDays = () => API.get("/days");
